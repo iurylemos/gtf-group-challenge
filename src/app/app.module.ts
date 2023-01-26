@@ -10,9 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
 import { StepperComponent } from './components/organisms/stepper/stepper.component';
+import { HeaderComponent } from './components/organisms/header/header.component';
+import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, LoginComponent, StepperComponent],
+  declarations: [AppComponent, MainComponent, LoginComponent, StepperComponent, HeaderComponent, SidebarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

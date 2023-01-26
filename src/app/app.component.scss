@@ -1,11 +1,10 @@
-.container {
-  max-width: 800px;
-  margin: 4em auto;
-  padding: 0 20px;
+:host {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
-.container > * {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+mat-drawer-container {
+  display: block;
+  height: 100%;
 }
