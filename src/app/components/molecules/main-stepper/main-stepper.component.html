@@ -1,0 +1,76 @@
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Início</ng-template>
+      <h3 class="main-stepper-component__title">
+        Informe o CPF do futuro cooperado (a)
+      </h3>
+      <h6 class="main-stepper-component__subTitle">
+        Se necessário, você poderá duplicar uma conta existente ou pausar e
+        retomar este cadastro futuramente. Digite apenas os números (sem pontos
+        ou traços).
+      </h6>
+      <div class="main-stepper-component__form">
+        <label class="main-stepper-component__form__label">CPF</label>
+        <div fxFlex="40%" class="main-stepper-component__form__input">
+          <mat-form-field
+            floatLabel="always"
+            hideRequiredMarker
+            appearance="outline"
+          >
+            <input
+              matInput
+              placeholder="Digite o CPF..."
+              type="text"
+              mask="000.000.000-00||00.000.000/0000-00"
+            />
+          </mat-form-field>
+          <div fxFlex="20%">
+            <button
+              class="main-stepper-component__form__input__button"
+              mat-flat-button
+              color="accent"
+              type="button"
+            >
+              Consultar por CPF
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Documentos</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="Ex. 1 Main St, New York, NY"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Dados cadastrais</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Admissão</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

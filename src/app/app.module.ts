@@ -12,9 +12,10 @@ import { CommonModule } from '@angular/common';
 import { StepperComponent } from './components/organisms/stepper/stepper.component';
 import { HeaderComponent } from './components/organisms/header/header.component';
 import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
+import { MainStepperComponent } from './components/molecules/main-stepper/main-stepper.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, LoginComponent, StepperComponent, HeaderComponent, SidebarComponent],
+  declarations: [AppComponent, MainComponent, LoginComponent, StepperComponent, HeaderComponent, SidebarComponent, MainStepperComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

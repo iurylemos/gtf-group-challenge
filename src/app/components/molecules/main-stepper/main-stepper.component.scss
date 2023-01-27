@@ -1,0 +1,132 @@
+.main-stepper-component {
+  &__title {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #101213;
+    margin: 0px;
+  }
+
+  &__subTitle {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 15px;
+    color: #4f575e;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+
+      /* Escala de cinza/Preto Ailos */
+
+      color: #040f14;
+    }
+
+    &__input {
+      display: flex;
+      flex-direction: row;
+      column-gap: 20px;
+      align-items: center;
+
+      :nth-child(2) {
+        margin-bottom: 15px;
+      }
+
+      &__button {
+        background: #a2becb !important;
+        border-radius: 2px;
+        color: #ffffff !important;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
+  }
+}
+
+mat-stepper {
+  background-color: transparent;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: transparent;
+  color: transparent;
+  border: 2px solid #165c7d;
+  border-radius: 100px;
+  width: 18px;
+  height: 18px;
+}
+
+::ng-deep .mat-step-label.mat-step-label-active {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #889499;
+}
+
+::ng-deep .mat-step-label-selected {
+  color: #165c7d !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  width: 50%;
+  align-self: center;
+}
+
+::ng-deep .mat-horizontal-stepper-header::before {
+  border-top-color: #c6ced1;
+}
+
+::ng-deep .mat-horizontal-stepper-header::after {
+  border-top-color: #c6ced1;
+}
+
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-color: #c6ced1;
+}
+
+::ng-deep .mdc-text-field--outlined .mdc-text-field__input {
+  font-family: "Open Sans" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 19px !important;
+  color: #040f14 !important;
+
+  &::placeholder {
+    color: #040f14 !important;
+  }
+}
+
+/* floating label color */
+::ng-deep
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline__trailing {
+  border-color: #889499 !important;
+}
+
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: #889499 !important;
+}
