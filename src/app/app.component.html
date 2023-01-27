@@ -1,9 +1,40 @@
-<app-header></app-header>
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
-    <app-sidebar></app-sidebar>
+  <mat-drawer
+    class="sidebar"
+    #drawer
+    mode="side"
+    disableClose="true"
+    opened="true"
+  >
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListItemIcon>menu</mat-icon>
+        <h3 matListItemTitle>Menu</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>search</mat-icon>
+        <h3 matListItemTitle>Pesquisa</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>star</mat-icon>
+        <h3 matListItemTitle>Classificados</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>chat</mat-icon>
+        <h3 matListItemTitle>Bate-Papo</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>insert_chart_outlined</mat-icon>
+        <h3 matListItemTitle>Desempenho</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>account_balance</mat-icon>
+        <h3 matListItemTitle>Financeiro</h3>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
+    <app-header></app-header>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

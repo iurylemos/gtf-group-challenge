@@ -1,0 +1,50 @@
+.header-component {
+  height: 89px;
+  background-color: #ffffff;
+  color: #125d79;
+  justify-content: space-between;
+
+  &__brand {
+    &__title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      color: #101213;
+      margin: 0px;
+    }
+
+    &__subTitle {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: #787878;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+
+    &__button {
+      color: #125d79;
+      background: #ffffff;
+      border: 1px solid #125d79;
+      border-radius: 25px;
+      font-weight: 500;
+      padding: 10px;
+      height: 30px;
+    }
+
+    &__image {
+      background-image: url(https://material.angular.io/assets/img/examples/shiba1.jpg);
+      background-size: cover;
+      width: 45px;
+      height: 45px;
+      border-radius: 30px;
+    }
+  }
+}

@@ -1,25 +1,21 @@
-<mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
+<mat-toolbar color="primary" class="header-component">
+  <span class="header-component__brand">
+    <h2 class="header-component__brand__title">NOVA ADMISSÃO COOPERADO</h2>
+    <h5 class="header-component__brand__subTitle">
+      Cadastro / Admissão do Cooperado / Nova Admissão de Cooperado
+    </h5>
+  </span>
+  <mat-divider vertical="true" inset="true"></mat-divider>
+  <div class="header-component__profile">
+    <mat-icon matBadge="7" matBadgeColor="warn">notifications_none</mat-icon>
+    <button
+      mat-fab
+      extended
+      color="primary"
+      class="header-component__profile__button"
+    >
+      VIACREDI
+    </button>
+    <div mat-card-avatar class="header-component__profile__image"></div>
+  </div>
 </mat-toolbar>
