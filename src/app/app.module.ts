@@ -13,17 +13,30 @@ import { StepperComponent } from './components/organisms/stepper/stepper.compone
 import { HeaderComponent } from './components/organisms/header/header.component';
 import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
 import { MainStepperComponent } from './components/molecules/main-stepper/main-stepper.component';
-
+import { InputMaskModule } from '@ngneat/input-mask';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 @NgModule({
-  declarations: [AppComponent, MainComponent, LoginComponent, StepperComponent, HeaderComponent, SidebarComponent, MainStepperComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    LoginComponent,
+    StepperComponent,
+    HeaderComponent,
+    SidebarComponent,
+    MainStepperComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
+    InputMaskModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent],
   exports: [CommonModule, FormsModule, ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

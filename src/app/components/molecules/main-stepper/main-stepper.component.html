@@ -1,6 +1,6 @@
 <mat-stepper labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+  <mat-step>
+    <form>
       <ng-template matStepLabel>Início</ng-template>
       <h3 class="main-stepper-component__title">
         Informe o CPF do futuro cooperado (a)
@@ -20,9 +20,11 @@
           >
             <input
               matInput
+              [(ngModel)]="text"
               placeholder="Digite o CPF..."
               type="text"
-              mask="000.000.000-00||00.000.000/0000-00"
+              name="cpfInput"
+              mask="000.000.000-00"
             />
           </mat-form-field>
           <div fxFlex="20%">
@@ -31,6 +33,7 @@
               mat-flat-button
               color="accent"
               type="button"
+              (click)="checkCpf($event)"
             >
               Consultar por CPF
             </button>
@@ -39,17 +42,12 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+  <mat-step>
+    <form>
       <ng-template matStepLabel>Documentos</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
-        <input
-          matInput
-          formControlName="secondCtrl"
-          placeholder="Ex. 1 Main St, New York, NY"
-          required
-        />
+        <input matInput placeholder="Ex. 1 Main St, New York, NY" required />
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
