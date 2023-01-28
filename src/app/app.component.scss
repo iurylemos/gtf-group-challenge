@@ -21,10 +21,6 @@ mat-nav-list {
   }
 }
 
-body {
-  // font-family: "Open Sans", sans-serif;
-}
-
 mat-drawer:hover {
   mat-nav-list {
     width: 180px;
@@ -42,4 +38,17 @@ mat-drawer-content {
 
 .sidebar {
   background: #165c7d;
+}
+
+.app-component {
+  &__logo {
+    margin: 0px 10px !important;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
 }
