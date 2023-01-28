@@ -3,6 +3,12 @@
   background-color: #ffffff;
   color: #125d79;
   justify-content: space-between;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+
+  @media (max-width: 765px) {
+    height: 175px;
+  }
 
   &__brand {
     &__title {
