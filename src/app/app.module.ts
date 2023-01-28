@@ -11,10 +11,18 @@ import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
 import { StepperComponent } from './components/organisms/stepper/stepper.component';
 import { HeaderComponent } from './components/organisms/header/header.component';
-import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
 import { MainStepperComponent } from './components/molecules/main-stepper/main-stepper.component';
 import { InputMaskModule } from '@ngneat/input-mask';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+@Injectable()
+export class ConfigService {
+  constructor(private http: HttpClient) {}
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +30,6 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     LoginComponent,
     StepperComponent,
     HeaderComponent,
-    SidebarComponent,
     MainStepperComponent,
   ],
   imports: [
@@ -35,6 +42,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     InputMaskModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    HttpClientModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent],

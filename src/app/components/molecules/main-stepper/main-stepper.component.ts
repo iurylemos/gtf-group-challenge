@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {
   AfterViewInit,
   Component,
@@ -9,6 +10,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { Injectable } from '@angular/core';
+import { ReceitaFederalService } from 'src/app/services/receita-federal.service';
 
 @Component({
   selector: 'app-main-stepper',
@@ -21,7 +24,7 @@ export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
   @ViewChildren(NgModel) cpfInputRef: QueryList<NgModel> | undefined;
   @ViewChild(NgModel, { static: true }) cpfInput: NgModel | undefined;
 
-  constructor() {}
+  constructor(private receitaFederalService: ReceitaFederalService) {}
 
   public ngOnInit(): void {}
 
@@ -42,6 +45,11 @@ export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
   public async checkCpf(event: MouseEvent): Promise<void> {
     event.preventDefault();
 
-    console.log('this.text', this.text);
+    try {
+      const data = await this.receitaFederalService.getDataFromCPF(this.text);
+      console.log('data', data);
+    } catch (error) {
+      console.log('error', error);
+    }
   }
 }

@@ -36,19 +36,19 @@ mat-drawer-content {
   background-color: #e7eef1;
 }
 
-.sidebar {
-  background: #165c7d;
-}
-
 .app-component {
-  &__logo {
-    margin: 0px 10px !important;
-  }
+  &__sidebar {
+    background: #165c7d;
 
-  &__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
+    &__logo {
+      margin: 0px 10px !important;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+    }
   }
 }
