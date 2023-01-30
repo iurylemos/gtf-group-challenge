@@ -16,6 +16,7 @@ import { InputMaskModule } from '@ngneat/input-mask';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/molecules/card/card.component';
+import { FooterComponent } from './components/molecules/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CardComponent } from './components/molecules/card/card.component';
     HeaderComponent,
     MainStepperComponent,
     CardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
