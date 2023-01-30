@@ -12,6 +12,7 @@ import {
 import { NgModel } from '@angular/forms';
 import { ReceitaFederalClient } from 'src/app/interfaces/ReceitaFederalClient';
 import { ReceitaFederalService } from 'src/app/services/receita-federal.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { checkCPFisValid } from '../../../utils/checkCPFisValid';
 
 @Component({
@@ -29,7 +30,10 @@ export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
   @ViewChildren(NgModel) cpfInputRef: QueryList<NgModel> | undefined;
   @ViewChild(NgModel, { static: true }) cpfInput: NgModel | undefined;
 
-  constructor(private receitaFederalService: ReceitaFederalService) {}
+  constructor(
+    private _receitaFederalService: ReceitaFederalService,
+    private _sharedService: SharedService
+  ) {}
 
   public ngOnInit(): void {}
 
@@ -54,9 +58,12 @@ export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
       this.loadingButton = true;
 
       if (checkCPFisValid(this.text)) {
-        const data = await this.receitaFederalService.getDataFromCPF(this.text);
+        const data = await this._receitaFederalService.getDataFromCPF(
+          this.text
+        );
         console.log('data', data);
         this.dataCard = data;
+        this._sharedService.emitChange({ cpfValidate: true, cpfData: data });
       } else {
         console.log('CPF INVALID');
       }
