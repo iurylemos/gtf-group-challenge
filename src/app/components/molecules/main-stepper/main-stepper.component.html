@@ -22,6 +22,7 @@
               matInput
               [(ngModel)]="text"
               placeholder="Digite o CPF..."
+              autocomplete="off"
               type="text"
               name="cpfInput"
               mask="000.000.000-00"
@@ -51,6 +52,7 @@
         </div>
       </div>
     </form>
+    <app-card *ngIf="dataCard.nome" [dataCard]="dataCard"></app-card>
   </mat-step>
   <mat-step>
     <form>

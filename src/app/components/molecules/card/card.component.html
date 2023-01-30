@@ -1,0 +1,65 @@
+<mat-card class="card-component">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title class="card-component__title">
+        Situação cadastral do CPF
+      </mat-card-title>
+      <mat-card-subtitle class="card-component__subTitle">
+        Consulta na Receita Federal
+      </mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list class="card-component__content__list">
+      <mat-list-item class="card-component__content__list__item">
+        <mat-icon
+          matListItemIcon
+          class="card-component__content__list__item__icon"
+          >account_circle</mat-icon
+        >
+        <label
+          matListItemTitle
+          class="card-component__content__list__item__label"
+        >
+          Nome
+        </label>
+        <h5 matListItemLine class="card-component__content__list__item__value">
+          {{ dataCard ? dataCard.nome : "" }}
+        </h5>
+      </mat-list-item>
+      <mat-list-item class="card-component__content__list__item">
+        <mat-icon
+          matListItemIcon
+          class="card-component__content__list__item__icon"
+          >event</mat-icon
+        >
+        <label
+          matListItemTitle
+          class="card-component__content__list__item__label"
+        >
+          CPF
+        </label>
+        <h5 matListItemLine class="card-component__content__list__item__value">
+          {{ dataCard ? dataCard.cpf : "" }}
+        </h5>
+      </mat-list-item>
+      <mat-list-item class="card-component__content__list__item">
+        <mat-icon
+          matListItemIcon
+          class="card-component__content__list__item__icon"
+          style="color: #00c246"
+          >check_circle_outline</mat-icon
+        >
+        <label
+          matListItemTitle
+          class="card-component__content__list__item__label"
+        >
+          Situação do CPF
+        </label>
+        <h5 matListItemLine class="card-component__content__list__item__value">
+          {{ dataCard ? dataCard.situacao : "" }}
+        </h5>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

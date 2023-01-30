@@ -1,0 +1,60 @@
+.card-component {
+  background-color: #ffffff;
+  color: #000000;
+
+  &__title {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    color: #040f14;
+  }
+
+  &__subTitle {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 15px;
+    /* identical to box height */
+
+    /* Cor texto sutil */
+
+    color: #787878;
+  }
+
+  &__content {
+    &__list {
+      * {
+        color: #000000;
+      }
+
+      &__item {
+        height: 55px !important;
+
+        &__icon {
+          margin: 28px 20px 0px 5px !important;
+        }
+
+        &__label {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 11px;
+          line-height: 15px !important;
+          color: #787878 !important;
+        }
+
+        &__value {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 19px !important;
+          color: #040f14 !important;
+        }
+      }
+    }
+  }
+}

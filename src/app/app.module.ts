@@ -15,13 +15,7 @@ import { MainStepperComponent } from './components/molecules/main-stepper/main-s
 import { InputMaskModule } from '@ngneat/input-mask';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
-
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-@Injectable()
-export class ConfigService {
-  constructor(private http: HttpClient) {}
-}
+import { CardComponent } from './components/molecules/card/card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +25,7 @@ export class ConfigService {
     StepperComponent,
     HeaderComponent,
     MainStepperComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
