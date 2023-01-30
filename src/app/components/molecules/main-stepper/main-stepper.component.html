@@ -29,13 +29,23 @@
           </mat-form-field>
           <div fxFlex="20%">
             <button
+              mat-raised-button
               class="main-stepper-component__form__input__button"
-              mat-flat-button
               color="accent"
               type="button"
               (click)="checkCpf($event)"
             >
-              Consultar por CPF
+              <mat-icon
+                class="main-stepper-component__form__input__button__icon"
+                *ngIf="loadingButton"
+              >
+                <mat-spinner
+                  class="main-stepper-component__form__input__button__icon__spinner"
+                  color="primary"
+                  diameter="20"
+                ></mat-spinner>
+              </mat-icon>
+              <span *ngIf="!loadingButton"> Consultar por CPF </span>
             </button>
           </div>
         </div>

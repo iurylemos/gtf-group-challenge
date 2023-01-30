@@ -30,9 +30,6 @@
       line-height: 19px;
       display: flex;
       align-items: center;
-
-      /* Escala de cinza/Preto Ailos */
-
       color: #040f14;
     }
 
@@ -41,13 +38,13 @@
       flex-direction: row;
       column-gap: 20px;
       align-items: center;
+      flex-wrap: wrap;
 
       :nth-child(2) {
         margin-bottom: 15px;
       }
 
       &__button {
-        background: #a2becb !important;
         border-radius: 2px;
         color: #ffffff !important;
         font-family: "Open Sans";
@@ -55,6 +52,18 @@
         font-weight: 600;
         font-size: 14px;
         line-height: 19px;
+        width: 180px;
+        height: 40px;
+        background: #165c7d !important;
+
+        &__icon {
+          margin: 0px !important;
+
+          &__spinner {
+            color: #165c7d;
+            --mdc-circular-progress-active-indicator-color: white;
+          }
+        }
       }
     }
   }

@@ -10,8 +10,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { Injectable } from '@angular/core';
 import { ReceitaFederalService } from 'src/app/services/receita-federal.service';
+import { checkCPFisValid } from '../../../utils/checkCPFisValid';
 
 @Component({
   selector: 'app-main-stepper',
@@ -19,7 +19,8 @@ import { ReceitaFederalService } from 'src/app/services/receita-federal.service'
   styleUrls: ['./main-stepper.component.scss'],
 })
 export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
-  public text = '';
+  public text: string = '';
+  public loadingButton: boolean = false;
 
   @ViewChildren(NgModel) cpfInputRef: QueryList<NgModel> | undefined;
   @ViewChild(NgModel, { static: true }) cpfInput: NgModel | undefined;
@@ -46,8 +47,16 @@ export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
     event.preventDefault();
 
     try {
-      const data = await this.receitaFederalService.getDataFromCPF(this.text);
-      console.log('data', data);
+      this.loadingButton = true;
+
+      if (checkCPFisValid(this.text)) {
+        const data = await this.receitaFederalService.getDataFromCPF(this.text);
+        console.log('data', data);
+      } else {
+        console.log('CPF INVALID');
+      }
+
+      this.loadingButton = false;
     } catch (error) {
       console.log('error', error);
     }
