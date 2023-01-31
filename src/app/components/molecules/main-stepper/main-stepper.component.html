@@ -32,6 +32,7 @@
               (keyup)="validateCPF()"
             />
             <mat-error
+              data-testid="cpf-error"
               *ngIf="
                 form.get('cpf')!.hasError('required') ||
                 form.get('cpf')!.errors!.invalid
