@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +15,7 @@ import { InputMaskModule } from '@ngneat/input-mask';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/molecules/card/card.component';
+import { FooterComponent } from './components/molecules/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { CardComponent } from './components/molecules/card/card.component';
     HeaderComponent,
     MainStepperComponent,
     CardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

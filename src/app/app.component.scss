@@ -49,6 +49,18 @@ mat-drawer-content {
       justify-content: center;
       align-items: center;
       margin-top: 15px;
+      width: fit-content;
+      padding-right: 0px;
+    }
+
+    &__list {
+      &__item {
+        width: 200px;
+
+        &__icon {
+          margin-right: 20px !important;
+        }
+      }
     }
   }
 }
