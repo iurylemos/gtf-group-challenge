@@ -1,6 +1,6 @@
 <mat-stepper labelPosition="bottom" #stepper>
   <mat-step>
-    <form>
+    <form [formGroup]="form">
       <ng-template matStepLabel>Início</ng-template>
       <h3 class="main-stepper-component__title">
         Informe o CPF do futuro cooperado (a)
@@ -20,13 +20,23 @@
           >
             <input
               matInput
-              [(ngModel)]="text"
               placeholder="Digite o CPF..."
               autocomplete="off"
               type="text"
               name="cpfInput"
               mask="000.000.000-00"
+              formControlName="cpf"
+              required
+              (keyup)="validateCPF()"
             />
+            <mat-error
+              *ngIf="
+                form.get('cpf')!.hasError('required') ||
+                form.get('cpf')!.errors!.invalid
+              "
+            >
+              CPF Inválido
+            </mat-error>
           </mat-form-field>
           <div fxFlex="20%">
             <button
