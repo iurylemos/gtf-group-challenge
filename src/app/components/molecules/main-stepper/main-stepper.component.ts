@@ -1,17 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {
-  AfterViewInit,
-  Component,
-  OnChanges,
-  OnInit,
-  QueryList,
-  SimpleChanges,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
-import { NgModel } from '@angular/forms';
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ReceitaFederalClient } from 'src/app/interfaces/ReceitaFederalClient';
 import { ReceitaFederalService } from 'src/app/services/receita-federal.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { checkCPFisValid } from '../../../utils/checkCPFisValid';
 
 @Component({
@@ -19,46 +15,73 @@ import { checkCPFisValid } from '../../../utils/checkCPFisValid';
   templateUrl: './main-stepper.component.html',
   styleUrls: ['./main-stepper.component.scss'],
 })
-export class MainStepperComponent implements OnChanges, OnInit, AfterViewInit {
+export class MainStepperComponent implements OnChanges, OnInit {
   public text: string = '';
   public loadingButton: boolean = false;
   public dataCard: Partial<ReceitaFederalClient> = {
     nome: '',
   };
+  public nameControl = new FormControl('');
+  public form: FormGroup;
 
-  @ViewChildren(NgModel) cpfInputRef: QueryList<NgModel> | undefined;
-  @ViewChild(NgModel, { static: true }) cpfInput: NgModel | undefined;
-
-  constructor(private receitaFederalService: ReceitaFederalService) {}
-
-  public ngOnInit(): void {}
-
-  ngAfterViewInit() {
-    this.cpfInputRef!.forEach((ref: NgModel) =>
-      ref.valueChanges!.subscribe((val) => this.change(val))
-    );
+  constructor(
+    private _receitaFederalService: ReceitaFederalService,
+    private _sharedService: SharedService,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      cpf: this.formBuilder.control({
+        value: null,
+        disabled: false,
+      }),
+    });
   }
 
+  public ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      cpf: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(
+            '(?<=D|^)(d{2}.?d{3}.?d{3}/?d{4}-?d{2}|d{3}.?d{3}.?d{3}-?d{2})(?=D|$)'
+          ),
+        ])
+      ),
+    });
+  }
+
+  public validateCPF(): void {
+    const value = this.form.get('cpf')!.value;
+
+    if (!checkCPFisValid(value)) {
+      this.form.get('cpf')?.setErrors({ invalid: true });
+      this.form.get('cpf')?.markAsTouched();
+    } else {
+      this.form.get('cpf')?.setErrors({ invalid: false });
+    }
+  }
   ngOnChanges(changes: SimpleChanges) {
+    console.log('test', this.form.get('cpf')?.errors);
     console.log('Changes detected');
-  }
-
-  change(text: string): void {
-    this.text = text;
   }
 
   public async checkCpf(event: MouseEvent): Promise<void> {
     event.preventDefault();
 
+    console.log(this.form.get('cpf')?.value);
+
     try {
       this.loadingButton = true;
 
-      if (checkCPFisValid(this.text)) {
-        const data = await this.receitaFederalService.getDataFromCPF(this.text);
-        console.log('data', data);
+      if (checkCPFisValid(this.form.get('cpf')?.value)) {
+        const data = await this._receitaFederalService.getDataFromCPF(
+          this.form.get('cpf')?.value
+        );
         this.dataCard = data;
+        this._sharedService.emitChange({ cpfValidate: true, cpfData: data });
       } else {
-        console.log('CPF INVALID');
+        this.nameControl.setErrors({ invalid: true });
       }
 
       this.loadingButton = false;
