@@ -11,14 +11,33 @@
     flex-direction: row;
     column-gap: 20px;
 
+    @media (max-width: 558px) {
+      height: auto;
+      margin: 10px 0;
+    }
+
     &__buttonNext {
       background: #165c7d !important;
       border-radius: 2px;
+
+      @media (max-width: 558px) {
+        display: flex;
+        white-space: pre-wrap;
+        width: 40%;
+        height: auto;
+      }
     }
 
     &__buttonTips {
       color: #165c7d !important;
       border-color: #165c7d !important;
+
+      @media (max-width: 558px) {
+        display: flex;
+        white-space: pre-wrap;
+        width: 35%;
+        height: auto;
+      }
     }
   }
 }
