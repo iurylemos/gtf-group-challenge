@@ -1,7 +1,9 @@
-<mat-stepper labelPosition="bottom" #stepper>
+<mat-stepper labelPosition="bottom" #stepper class="main-stepper-component">
   <mat-step>
     <form [formGroup]="form">
-      <ng-template matStepLabel>Início</ng-template>
+      <ng-template matStepLabel class="main-stepper-component__label"
+        >Início</ng-template
+      >
       <h3 class="main-stepper-component__title">
         Informe o CPF do futuro cooperado (a)
       </h3>

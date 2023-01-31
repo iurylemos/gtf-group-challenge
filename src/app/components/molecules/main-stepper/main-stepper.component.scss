@@ -1,4 +1,12 @@
 .main-stepper-component {
+  @media (max-width: 500px) {
+    margin-bottom: 3em;
+  }
+
+  &__label {
+    align-self: auto !important;
+  }
+
   &__title {
     font-family: "Open Sans";
     font-style: normal;
@@ -73,8 +81,23 @@ mat-stepper {
   background-color: transparent;
 }
 
+::ng-deep .mat-horizontal-stepper-header-container {
+  @media (max-width: 630px) {
+    width: 100% !important;
+  }
+}
+
+::ng-deep .mat-step-header .mat-step-icon {
+  background-color: #c6ced1 !important;
+  color: transparent;
+}
+
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
+  color: #c6ced1;
+}
+
 ::ng-deep .mat-step-header .mat-step-icon-selected {
-  background-color: transparent;
+  background-color: #e7eef1 !important;
   color: transparent;
   border: 2px solid #165c7d;
   border-radius: 100px;
