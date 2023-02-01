@@ -22,7 +22,7 @@
           >
             <input
               matInput
-              placeholder="Digite o CPF..."
+              placeholder="000.000.000-00"
               autocomplete="off"
               type="text"
               name="cpfInput"
@@ -48,6 +48,10 @@
               color="accent"
               type="button"
               (click)="checkCpf($event)"
+              [disabled]="
+                form.get('cpf')!.hasError('required') ||
+                form.get('cpf')!.errors!.invalid
+              "
             >
               <mat-icon
                 class="main-stepper-component__form__input__button__icon"
