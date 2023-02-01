@@ -102,6 +102,8 @@ mat-stepper {
 ::ng-deep .mat-step-header .mat-step-icon {
   background-color: #c6ced1 !important;
   color: transparent;
+  height: 18px;
+  width: 18px;
 }
 
 ::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
@@ -113,8 +115,8 @@ mat-stepper {
   color: transparent;
   border: 2px solid #165c7d;
   border-radius: 100px;
-  width: 18px;
-  height: 18px;
+  width: 14px !important;
+  height: 14px !important;
 }
 
 ::ng-deep .mat-step-label.mat-step-label-active {
@@ -124,6 +126,11 @@ mat-stepper {
   font-size: 14px;
   line-height: 19px;
   color: #889499;
+}
+
+::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header,
+.mat-vertical-stepper-header {
+  padding: 28px 24px !important;
 }
 
 ::ng-deep .mat-step-label-selected {

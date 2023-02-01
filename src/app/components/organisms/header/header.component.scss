@@ -55,6 +55,13 @@
       width: 45px;
       height: 45px;
       border-radius: 30px;
+      border: 1px solid #125d79;
+
+      &__icon {
+        margin-left: 30px;
+        margin-top: 30px;
+        font-size: 17px;
+      }
     }
   }
 }
