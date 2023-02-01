@@ -52,17 +52,23 @@
         margin-bottom: 15px;
       }
 
+      &__field {
+        height: 34px;
+        align-items: center;
+      }
+
       &__button {
         border-radius: 2px;
-        color: #ffffff !important;
+        color: #ffffff;
         font-family: "Open Sans";
         font-style: normal;
         font-weight: 600;
         font-size: 14px;
         line-height: 19px;
         width: 180px;
-        height: 40px;
-        background: #165c7d !important;
+        height: 34px !important;
+        margin-bottom: 7.5px;
+        background: #165c7d;
 
         &__icon {
           margin: 0px !important;
@@ -79,6 +85,12 @@
 
 mat-stepper {
   background-color: transparent;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  height: 34px !important;
+  align-items: center !important;
+  background-color: #ffffff;
 }
 
 ::ng-deep .mat-horizontal-stepper-header-container {

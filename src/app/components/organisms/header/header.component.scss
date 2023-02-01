@@ -10,6 +10,10 @@
     height: 175px;
   }
 
+  @media (max-width: 475px) {
+    padding-top: 10px;
+  }
+
   &__brand {
     &__title {
       font-style: normal;
